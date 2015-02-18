@@ -10,8 +10,9 @@ def readcountry():
 	file = open('countries_list.txt', 'r')
 	countrylist = []
 	for country in file:
-		strippedcountry=country.strip("\n")
-		countrylist.append(strippedcountry)
+		strippedcountry = country.strip("\n")
+		countryobject = Country(strippedcountry)
+		countrylist.append(countryobject)
 	
 	return countrylist
         
