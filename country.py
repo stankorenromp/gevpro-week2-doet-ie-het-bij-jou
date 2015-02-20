@@ -1,7 +1,10 @@
+from flag_color import *
+
 class Country:
 
-	def __init__(self, name):
+	def __init__(self, name, FlagColor):
 		self.name=name
+		self.FlagColor=FlagColor
 
 	def __str__(self):
 		return 'Hello from ' + self.name 
