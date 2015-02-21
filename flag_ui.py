@@ -9,32 +9,32 @@ class UserInterface(QWidget):
 		self.initUI()
 		
 	def initUI(self):
-		countrylist = readcountry()
+		self.countrylist = readcountry()
 		
 		self.setGeometry(300,300,280,170)
 		self.setWindowTitle('Landen met vlag')
 		self.show()
 		
 		self.dropdown = QComboBox(self)
-		for item in countrylist:
+		for item in self.countrylist:
 			self.dropdown.addItem(item.getName())
 		self.dropdown.setGeometry(20,10,240,30)
 		self.dropdown.show()
 		
 		self.dropdown.currentIndexChanged.connect(self.updateUi)
 		
-		self.bier = QFrame(self)
-		self.bier.setGeometry(20,50,240,100)
-		self.bier.show()
+		self.frame = QFrame(self)
+		self.frame.setGeometry(20,50,240,100)
+		self.frame.show()
 		
 	def updateUi(self):
-		countrylist = readcountry()
 		nummer = self.dropdown.currentIndex()
-		index = countrylist[nummer]
+		index = self.countrylist[nummer]
 		schermkleur = index.getKleuren()
-		self.bier.setStyleSheet("QFrame { background-color: %s }" % schermkleur.name())
+		self.frame.setStyleSheet("QFrame { background-color: %s }" % schermkleur.name())
 
 def main():
+	countrylist = readcountry()
 	app = QtGui.QApplication(sys.argv)
 	userinterface = UserInterface()
 	sys.exit(app.exec_())

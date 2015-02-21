@@ -13,8 +13,5 @@ class FlagColor(QColor):
 		redrand = randrange(1,255)
 		greenrand = randrange(1,255)
 		bluerand = randrange(1,255)
-		"""red = self.setRed(redrand)
-		green = self.setGreen(greenrand)
-		blue = self.setBlue(bluerand)"""
 	
 		return redrand,greenrand,bluerand
