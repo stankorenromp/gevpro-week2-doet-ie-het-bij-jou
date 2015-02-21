@@ -5,13 +5,16 @@ from PyQt4.QtGui import *
 class FlagColor(QColor):
 	def __init__(self):
 		super(FlagColor,self).__init__()
+		red = self.red
+		green = self.green
+		blue = self.blue
 	
 	def SetColor(self):
-		red=randrange(1,255)
-		green=randrange(1,255)
-		blue=randrange(1,255)
-		setred=self.setRed(red)
-		setgreen=self.setGreen(green)
-		setblue=self.setBlue(blue)
-		
+		redrand = randrange(1,255)
+		greenrand = randrange(1,255)
+		bluerand = randrange(1,255)
+		"""red = self.setRed(redrand)
+		green = self.setGreen(greenrand)
+		blue = self.setBlue(bluerand)"""
 	
+		return redrand,greenrand,bluerand
