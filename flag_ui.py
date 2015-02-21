@@ -15,6 +15,7 @@ class UserInterface(QWidget):
 		self.setWindowTitle('Landen met vlag')
 		self.show()
 		
+		#creates QCombobox with Countries
 		self.dropdown = QComboBox(self)
 		for item in self.countrylist:
 			self.dropdown.addItem(item.getName())
@@ -23,12 +24,14 @@ class UserInterface(QWidget):
 		
 		self.dropdown.currentIndexChanged.connect(self.updateUi)
 		
+		#Creates QFrame to show the color
 		self.frame = QFrame(self)
 		self.frame.setGeometry(20,50,240,100)
 		self.frame.show()
 		
 	def updateUi(self):
 		nummer = self.dropdown.currentIndex()
+		#Search for the right country in the list, take it's color and show it on QFrame
 		index = self.countrylist[nummer]
 		schermkleur = index.getKleuren()
 		self.frame.setStyleSheet("QFrame { background-color: %s }" % schermkleur.name())
